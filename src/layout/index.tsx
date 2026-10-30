@@ -184,7 +184,7 @@ export function AppLayout() {
             <nav className="app-footer-links" aria-label={t("使用文档")}>
               <UnderlineHover asChild>
                 <a
-                  href="https://huzhihui.com/blog/one-ip-guide"
+                  href="https://github.com/Tx13758627780/one-ip-v2#readme"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -202,7 +202,7 @@ export function AppLayout() {
               </UnderlineHover>
               <UnderlineHover asChild>
                 <a
-                  href="https://github.com/zhihui-hu/one-ip"
+                  href="https://github.com/Tx13758627780/one-ip-v2"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -210,7 +210,7 @@ export function AppLayout() {
                 </a>
               </UnderlineHover>
               <UnderlineHover asChild>
-                <a href="mailto:ip@huzhihui.com">{t("联系作者")}</a>
+                <a href="mailto:contact@ipnb.online">{t("联系作者")}</a>
               </UnderlineHover>
             </nav>
           </div>

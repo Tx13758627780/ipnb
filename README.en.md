@@ -1,4 +1,4 @@
-# One IP
+# one-ip-v2
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-19-282C34?logo=react&amp;logoColor=61DAFB" alt="React 19" />
@@ -15,15 +15,15 @@
   <img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&amp;logoColor=black" alt="Prettier" />
 </p>
 
-A toolbox for IP lookups, network diagnostics, browser checks and AI service status.
+one-ip-v2 is an independently maintained toolbox for IP lookups, network diagnostics, browser checks and AI service status. Live site: [ipnb.online](https://ipnb.online/).
 
 [中文](README.md) · **English**
 
-[Live demo](https://ip.huzhihui.com/) · [GitHub](https://github.com/zhihui-hu/one-ip)
+[Live site](https://ipnb.online/) · [GitHub](https://github.com/Tx13758627780/one-ip-v2) · [Issues](https://github.com/Tx13758627780/one-ip-v2/issues) · Contact: [contact@ipnb.online](mailto:contact@ipnb.online)
 
 Click the button below for one-click deployment to Cloudflare.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fzhihui-hu%2Fone-ip)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FTx13758627780%2Fone-ip-v2)
 
 ## Terminal and API
 
@@ -31,12 +31,12 @@ After deploying this version, use `GET /api/ip/health` without an API key:
 
 ```bash
 # Current request's public egress IP, readable terminal output
-curl -fsS 'https://ip.huzhihui.com/api/ip/health?format=text'
+curl -fsS 'https://ipnb.online/api/ip/health?format=text'
 # JSON (default)
-curl -fsS 'https://ip.huzhihui.com/api/ip/health'
+curl -fsS 'https://ipnb.online/api/ip/health'
 # Explicit public IPv4 or IPv6
-curl -fsS 'https://ip.huzhihui.com/api/ip/health?ip=1.1.1.1'
-curl -fsS 'https://ip.huzhihui.com/api/ip/health?ip=2606:4700:4700::1111&format=text'
+curl -fsS 'https://ipnb.online/api/ip/health?ip=1.1.1.1'
+curl -fsS 'https://ipnb.online/api/ip/health?ip=2606:4700:4700::1111&format=text'
 ```
 
 Replace the domain for your deployment. Local development uses `http://127.0.0.1:8787` and requires `ip`. Without `ip`, the API uses the caller address identified by Cloudflare; a proxy changes that egress address.
@@ -47,9 +47,9 @@ Returns `ip`, `source`, `checked_at`, `score`, `status`, location, ISP, ASN and 
 
 ## Deploy to Cloudflare
 
-1. [Fork this project](https://github.com/zhihui-hu/one-ip/fork) into your GitHub account.
+1. [Fork this project](https://github.com/Tx13758627780/one-ip-v2/fork) into your GitHub account.
 2. Open the [Cloudflare dashboard](https://dash.cloudflare.com/), go to **Workers & Pages**, create a Worker and choose to import a Git repository.
-3. Connect GitHub, select your `one-ip` fork and set the production branch to `main`.
+3. Connect GitHub, select your `one-ip-v2` fork and set the production branch to `main`.
 4. Set the build command to `pnpm build` and the deploy command to `pnpm deploy`. Use Node.js 24 and pnpm 10.32.1. Keep the default root directory.
 5. Deploy and open the assigned `workers.dev` address. Use the Worker settings to connect a custom domain.
 
@@ -88,25 +88,6 @@ IP addresses, detailed locations and ISP / ASN information have been redacted. V
     <td><img src="docs/screenshots/mobile-home-dark-redacted.png" alt="Redacted mobile dark overview" width="360" /></td>
   </tr>
 </table>
-
-## Update your fork
-
-Click **Sync fork → Update branch** on your GitHub repository page. Review differences if you have code changes, and resolve merge conflicts.
-
-For scheduled updates, enable `Sync upstream`:
-
-1. Enable workflows in your fork's Actions tab.
-2. Under Settings → Secrets and variables → Actions → **Variables**, add `AUTO_SYNC_UPSTREAM=true`.
-3. The workflow checks for updates at 04:23 UTC each day. You can run it from the Actions page.
-
-The workflow supports forks created from `zhihui-hu/one-ip` and requires no personal access token. It uses GitHub's `merge-upstream` API, stops on conflicts and preserves your commits. Use GitHub's Sync fork if you want to review updates.
-
-- **Workers Builds:** connect your fork's production branch and check deployment records for synchronized commits in Cloudflare's build history.
-- **GitHub Actions deployment:** the sync workflow triggers deployment when it merges updates. Pushes made with `GITHUB_TOKEN` do not trigger ordinary `push` workflows.
-- If branch protection blocks a merge, use a PR.
-- Enable scheduled workflows in your fork. GitHub may disable schedules after 60 days of inactivity in a public repository; use the Actions page to enable them.
-
-References: [Syncing a fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork), [GITHUB_TOKEN triggering behavior](https://docs.github.com/en/actions/concepts/security/github_token), [Workflow disabling rules](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows).
 
 ## GitHub Actions deployment (optional)
 
@@ -171,4 +152,8 @@ reCAPTCHA uses v3 score-based keys. The backend validates hostname, the `browser
 - Globalping: global measurements; IANA / RDAP: registration records; official platform status feeds: service status.
 - FingerprintJS and CreepJS: browser checks. See [vendor/browser-diagnostics](vendor/browser-diagnostics/README.md) for module details.
 
-Issues and suggestions are welcome. Redact private information such as IPs, locations and fingerprint identifiers before sharing screenshots.
+Issues and suggestions are welcome on [GitHub Issues](https://github.com/Tx13758627780/one-ip-v2/issues), or email [contact@ipnb.online](mailto:contact@ipnb.online). Redact private information such as IPs, locations and fingerprint identifiers before sharing screenshots.
+
+## License and origin
+
+Licensed under [GNU AGPL-3.0](LICENSE). Originally based on [zhihui-hu/one-ip](https://github.com/zhihui-hu/one-ip) (AGPL-3.0); now independently maintained as one-ip-v2. Original copyright and license notices are retained.

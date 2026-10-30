@@ -1,6 +1,6 @@
-<img src="public/icon.svg" alt="One IP Logo" width="96" height="96" />
+<img src="public/icon.svg" alt="one-ip-v2 Logo" width="96" height="96" />
 
-# One IP
+# one-ip-v2
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-19-282C34?logo=react&amp;logoColor=61DAFB" alt="React 19" />
@@ -17,29 +17,29 @@
   <img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&amp;logoColor=black" alt="Prettier" />
 </p>
 
-IP 查询、网络诊断、浏览器检测与 AI 服务状态工具箱。
+one-ip-v2 是一个独立维护的 IP 查询、网络诊断、浏览器检测与 AI 服务状态工具箱，线上站点：[ipnb.online](https://ipnb.online/)。
 
 **中文** · [English](README.en.md)
 
-[在线体验](https://ip.huzhihui.com/) · [GitHub](https://github.com/zhihui-hu/one-ip)
+[在线体验](https://ipnb.online/) · [GitHub](https://github.com/Tx13758627780/one-ip-v2) · [问题反馈](https://github.com/Tx13758627780/one-ip-v2/issues) · 联系：[contact@ipnb.online](mailto:contact@ipnb.online)
 
 社区友链：[LINUX DO](https://linux.do/) · 真诚、友善、团结、专业。
 
 点击下方按钮，一键部署到 Cloudflare。
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fzhihui-hu%2Fone-ip)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FTx13758627780%2Fone-ip-v2)
 
 ## Cloudflare 部署教程
 
-1. [Fork 本项目](https://github.com/zhihui-hu/one-ip/fork)到你的 GitHub 账号。
+1. [Fork 本项目](https://github.com/Tx13758627780/one-ip-v2/fork)到你的 GitHub 账号。
 2. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)，进入 **Workers & Pages**，创建 Worker，选择导入 Git 仓库。
-3. 连接 GitHub，选择你的 `one-ip` Fork，生产分支填 `main`。
+3. 连接 GitHub，选择你的 `one-ip-v2` Fork，生产分支填 `main`。
 4. 构建命令填 `pnpm build`，部署命令填 `pnpm deploy`。使用 Node.js 24 和 pnpm 10.32.1，根目录保持默认。
 5. 点击部署，完成后打开 `workers.dev` 地址。自定义域名在 Worker 设置中绑定。
 
 项目使用 **Cloudflare Workers + Static Assets**，`/api/*` 接口需要 Worker。基础功能无需应用环境变量或 API Key。Turnstile 和 reCAPTCHA 的配置见“验证体验”。
 
-Workers Builds 会在 `main` 收到提交时构建和部署。上方按钮使用原项目地址；需要保留 Fork 关系和更新工作流时，请按教程导入你的 Fork。
+Workers Builds 会在 `main` 收到提交时构建和部署。
 
 ## 功能
 
@@ -65,14 +65,14 @@ Workers Builds 会在 `main` 收到提交时构建和部署。上方按钮使用
 
 ```bash
 # 当前请求的公网出口 IP，终端文本
-curl -fsS 'https://ip.huzhihui.com/api/ip/health?format=text'
+curl -fsS 'https://ipnb.online/api/ip/health?format=text'
 
 # 默认返回 JSON，便于脚本处理
-curl -fsS 'https://ip.huzhihui.com/api/ip/health'
+curl -fsS 'https://ipnb.online/api/ip/health'
 
 # 指定公网 IPv4 或 IPv6
-curl -fsS 'https://ip.huzhihui.com/api/ip/health?ip=1.1.1.1'
-curl -fsS 'https://ip.huzhihui.com/api/ip/health?ip=2606:4700:4700::1111&format=text'
+curl -fsS 'https://ipnb.online/api/ip/health?ip=1.1.1.1'
+curl -fsS 'https://ipnb.online/api/ip/health?ip=2606:4700:4700::1111&format=text'
 ```
 
 自部署时替换域名。本地开发使用 `http://127.0.0.1:8787`，必须指定 `ip`。省略 `ip` 时使用 Cloudflare 识别的本次请求出口；经过代理时会查询代理出口。
@@ -94,25 +94,6 @@ curl -fsS 'https://ip.huzhihui.com/api/ip/health?ip=2606:4700:4700::1111&format=
     <td><img src="docs/screenshots/mobile-home-dark-redacted.png" alt="手机深色首页（已打码）" width="360" /></td>
   </tr>
 </table>
-
-## Fork 更新
-
-在 GitHub 仓库页面点击 **Sync fork → Update branch**。有代码改动时检查差异，通过合并处理冲突。
-
-定时同步使用 `Sync upstream` 工作流：
-
-1. 在 Fork 的 Actions 页面启用工作流。
-2. 在 Settings → Secrets and variables → Actions → **Variables** 添加 `AUTO_SYNC_UPSTREAM=true`。
-3. 工作流在每天 UTC 04:23 检查更新。Actions 页面提供运行入口。
-
-支持范围是从 `zhihui-hu/one-ip` 创建的 Fork，无需个人访问令牌（PAT）。工作流通过 GitHub 的 `merge-upstream` 接口合并更新，遇到冲突时停止，保留你的提交。需要审核更新时，使用 GitHub 的 Sync fork。
-
-- **Workers Builds**：连接 Fork 的生产分支，在 Cloudflare 构建历史中检查同步提交的部署记录。
-- **GitHub Actions 部署**：同步产生更新时，工作流触发部署任务。`GITHUB_TOKEN` 产生的推送不会触发普通 `push` 工作流。
-- 分支保护阻止合并时，通过 PR 处理。
-- Fork 的定时工作流需要启用。公开仓库 60 天无活动可能导致 GitHub 停用定时任务，恢复入口在 Actions 页面。
-
-参考：[同步 Fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork)、[GITHUB_TOKEN 触发规则](https://docs.github.com/en/actions/concepts/security/github_token)、[定时工作流停用规则](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows)。
 
 ## GitHub Actions 部署（可选）
 
@@ -177,7 +158,7 @@ reCAPTCHA 使用 v3 评分型密钥。服务端校验 hostname、`browser_check`
 - Globalping：全球测量；IANA / RDAP：注册资料；各平台官方状态源：运行状态。
 - FingerprintJS 与 CreepJS：浏览器检测，模块说明见 [vendor/browser-diagnostics](vendor/browser-diagnostics/README.md)。
 
-欢迎提交 Issue 和改进建议。分享截图前，请遮盖 IP、位置和指纹标识等隐私信息。
+欢迎在 [GitHub Issues](https://github.com/Tx13758627780/one-ip-v2/issues) 提交问题和改进建议，或发邮件至 [contact@ipnb.online](mailto:contact@ipnb.online)。分享截图前，请遮盖 IP、位置和指纹标识等隐私信息。
 
 ### 人机校验与 Claude 环境对照
 
@@ -188,3 +169,7 @@ reCAPTCHA 使用 v3 评分型密钥。服务端校验 hostname、`browser_check`
 Claude 页面自动比较 `claude.ai` 与 `claude.com` 出口，并展示 DNS、WebRTC 和语言、时区等浏览器信息。检测失败、不同出口或中文偏好均不直接代表账号风险。未接入 Cloudflare 企业版 Bot Management；不展示推算的企业版分数。
 
 Claude 页面还内嵌自动人机校验，并本地检测简繁中文字体、厂商字体、UA / Client Hints、Intl 区域及 Canvas 国旗渲染。检测字典参考 LinXiaoTao/FuckClaude，来源摘要与 MIT 许可证位于 `vendor/claude-environment/`。不使用其风险分数；不把字体、厂商或中文偏好解释为国籍或封禁概率。页面仅展示简洁人机状态和逐项更新的检测日志，不提供评分卡或文本输入。
+
+## 许可与来源
+
+本项目以 [GNU AGPL-3.0](LICENSE) 许可发布。最初基于 [zhihui-hu/one-ip](https://github.com/zhihui-hu/one-ip)（AGPL-3.0），现由 one-ip-v2 独立维护；原项目的版权与许可声明保持不变。

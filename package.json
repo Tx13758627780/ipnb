@@ -1,7 +1,20 @@
 {
-  "name": "ip",
+  "name": "one-ip-v2",
   "private": true,
   "license": "AGPL-3.0-only",
+  "author": {
+    "email": "contact@ipnb.online",
+    "url": "https://ipnb.online"
+  },
+  "homepage": "https://ipnb.online",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tx13758627780/one-ip-v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tx13758627780/one-ip-v2/issues",
+    "email": "contact@ipnb.online"
+  },
   "packageManager": "pnpm@10.32.1",
   "engines": {
     "node": ">=24"
