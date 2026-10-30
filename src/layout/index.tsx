@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { BrandMark } from "@/components/brand-mark";
 import { BuildInfo } from "@/components/build-info";
 import { LanguageSelect } from "@/components/language-select";
 import { AppUpdateChecker } from "@/components/providers/app-update-checker";
@@ -101,8 +102,10 @@ export function AppLayout() {
             className="flex items-center gap-2 text-sm font-semibold"
             aria-label={t("IP 网络工具概览")}
           >
-            <img src="/icon.svg" width="24" height="24" alt="" />
-            <span className="brand-wordmark">{t("网络诊断工具")}</span>
+            <BrandMark />
+            <span className="brand-wordmark">
+              one<b>-</b>ip
+            </span>
           </Link>
           <div className="flex items-center gap-1">
             <ShareSite />
@@ -134,14 +137,20 @@ export function AppLayout() {
                 aria-label={t("IP 网络工具概览")}
                 className="site-home-link flex size-9 shrink-0 items-center justify-center rounded-lg focus-visible:outline-2 focus-visible:outline-ring"
               >
-                <img src="/icon.svg" alt="" width="32" height="32" />
-                <span className="brand-wordmark">{t("网络诊断工具")}</span>
+                <BrandMark />
+                <span className="brand-wordmark">
+                  one<b>-</b>ip
+                </span>
               </Link>
               <ScrollArea className="nav-tabs-scroll">
                 {list}
                 <ScrollBar orientation="horizontal" />
               </ScrollArea>
               <div className="desktop-preferences flex items-center gap-1">
+                <span className="nav-live" aria-hidden="true">
+                  <span className="pulse-dot" />
+                  {t("实时检测")}
+                </span>
                 <ShareSite />
                 <LanguageSelect />
                 <ThemeToggleButton className="size-9 shrink-0 rounded-lg text-muted-foreground" />
@@ -178,8 +187,8 @@ export function AppLayout() {
         <footer className="app-footer">
           <div className="app-footer-inner">
             <span className="app-footer-brand">
-              <img src="/icon.svg" alt="" width="20" height="20" />
-              <span>© {new Date().getFullYear()} IP</span>
+              <BrandMark />
+              <span>© {new Date().getFullYear()} one-ip · ipnb.online</span>
             </span>
             <nav className="app-footer-links" aria-label={t("使用文档")}>
               <UnderlineHover asChild>

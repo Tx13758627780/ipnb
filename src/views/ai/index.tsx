@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AiNetworkCheck } from "./network-check";
 import { AiPlatformLinks } from "./platform-links";
 import type { AiPlatform } from "./platforms";
+import { AiRouteMap } from "./route-map";
 
 export default function PlatformDiagnostics({
   platform,
@@ -46,6 +47,17 @@ export default function PlatformDiagnostics({
   return (
     <div className="ai-diagnostics">
       <PageHeading title={t("{0} 网络检测", [platform.name])} description="" />
+      <AiRouteMap
+        platform={platform}
+        domesticIp={domestic.data?.ip}
+        exitIp={
+          platform.traceDomain
+            ? exit.data?.ip
+            : platform.domestic
+              ? undefined
+              : cf.data?.ip
+        }
+      />
       <div className="ai-overview">
         <ToolCard
           title={

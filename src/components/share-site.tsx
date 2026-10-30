@@ -1,27 +1,45 @@
 import { useState } from "react";
 import { t } from "@/i18n";
-import { QrCode } from "lucide-react";
+import { QrCode, Share2 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { CopyButton } from "./copy-button";
 import { Button } from "./ui/button";
 import { InputGroup, InputGroupInput, InputGroupAddon } from "./ui/input-group";
 import { ResponsiveDialog } from "./ui/responsive-dialog";
 
-export function ShareSite() {
+export function ShareSite({
+  variant = "icon",
+  className = "",
+}: {
+  /** "button" renders a labelled outline button (used by the diagnosis panel). */
+  variant?: "icon" | "button";
+  className?: string;
+}) {
   const siteUrl = `${window.location.origin}/`;
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Button
-        variant="ghost"
-        size="icon"
-        className="size-8 rounded-full text-muted-foreground md:size-9 md:rounded-lg"
-        aria-label={t("分享网站")}
-        title={t("分享网站")}
-        onClick={() => setOpen(true)}
-      >
-        <QrCode className="size-4" aria-hidden="true" />
-      </Button>
+      {variant === "button" ? (
+        <Button
+          variant="outline"
+          className={className}
+          onClick={() => setOpen(true)}
+        >
+          <Share2 aria-hidden="true" />
+          {t("分享")}
+        </Button>
+      ) : (
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-8 rounded-full text-muted-foreground md:size-9 md:rounded-lg"
+          aria-label={t("分享网站")}
+          title={t("分享网站")}
+          onClick={() => setOpen(true)}
+        >
+          <QrCode className="size-4" aria-hidden="true" />
+        </Button>
+      )}
       <ResponsiveDialog
         open={open}
         onOpenChange={setOpen}

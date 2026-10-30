@@ -3,6 +3,9 @@ import { t } from "@/i18n";
 export const aiPlatforms = [
   {
     id: "gpt",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [-122.27, 37.6] as [number, number],
+    domestic: false,
     traceDomain: "chatgpt.com",
     apiUrl: "https://api.openai.com/v1",
     docsUrl: "https://platform.openai.com/docs/overview",
@@ -12,6 +15,9 @@ export const aiPlatforms = [
   },
   {
     id: "claude",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [-122.27, 37.6] as [number, number],
+    domestic: false,
     traceDomain: "claude.ai",
     apiUrl: "https://api.anthropic.com",
     docsUrl: "https://platform.claude.com/docs/en/api/overview",
@@ -21,6 +27,9 @@ export const aiPlatforms = [
   },
   {
     id: "grok",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [-122.27, 37.6] as [number, number],
+    domestic: false,
     traceDomain: "grok.com",
     apiUrl: "https://api.x.ai",
     docsUrl: "https://docs.x.ai/",
@@ -31,6 +40,9 @@ export const aiPlatforms = [
   },
   {
     id: "perplexity",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [-122.27, 37.6] as [number, number],
+    domestic: false,
     traceDomain: "www.perplexity.ai",
     apiUrl: "https://api.perplexity.ai",
     docsUrl: "https://docs.perplexity.ai/",
@@ -40,6 +52,9 @@ export const aiPlatforms = [
   },
   {
     id: "gemini",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [-122.27, 37.6] as [number, number],
+    domestic: false,
     apiUrl: "https://generativelanguage.googleapis.com",
     docsUrl: "https://ai.google.dev/gemini-api/docs",
     statusId: "31",
@@ -50,6 +65,9 @@ export const aiPlatforms = [
   },
   {
     id: "deepseek",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [120.15, 30.28] as [number, number],
+    domestic: true,
     apiUrl: "https://api.deepseek.com",
     docsUrl: "https://api-docs.deepseek.com/",
     statusId: "32",
@@ -59,6 +77,9 @@ export const aiPlatforms = [
   },
   {
     id: "qwen",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [120.15, 30.28] as [number, number],
+    domestic: true,
     apiUrl: "https://dashscope-us.aliyuncs.com/compatible-mode/v1",
     docsUrl:
       "https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope",
@@ -68,6 +89,9 @@ export const aiPlatforms = [
   },
   {
     id: "kimi",
+    /** Approximate service region (company HQ area), used only for the map. */
+    region: [116.4, 39.9] as [number, number],
+    domestic: true,
     apiUrl: "https://api.moonshot.cn/v1",
     docsUrl: "https://platform.moonshot.cn/docs/intro",
     statusId: "35",

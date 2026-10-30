@@ -19,6 +19,7 @@ import { t, locale } from "@/i18n";
 import { AiNetworkCheck } from "@/views/ai/network-check";
 import { AiPlatformLinks } from "@/views/ai/platform-links";
 import { aiPlatforms } from "@/views/ai/platforms";
+import { AiRouteMap } from "@/views/ai/route-map";
 import { claudeApi } from "@/views/claude/api";
 import { claudeHistoryAtom } from "@/views/claude/store";
 import { gptApi } from "@/views/gpt/api";
@@ -73,6 +74,11 @@ export default function AiDiagnostics({ kind }: { kind: "claude" | "gpt" }) {
             : t("ChatGPT · Codex 网络检测")
         }
         description=""
+      />
+      <AiRouteMap
+        platform={aiPlatforms.find((platform) => platform.id === kind)!}
+        domesticIp={domestic.data?.ip}
+        exitIp={ip}
       />
       <div className="ai-overview">
         <ToolCard
