@@ -1,5 +1,5 @@
 import { t } from "@/i18n";
-import { endpoint, trace } from "@/lib/network";
+import { cloudflareTrace, endpoint } from "@/lib/network";
 import type { Geo, RtcResult } from "@/lib/types";
 
 export function isPublicCandidate(ip: string) {
@@ -107,7 +107,7 @@ export async function collectCandidates(
 }
 export async function runWebRtc(_: void, signal: AbortSignal) {
   const [baseline, candidates] = await Promise.all([
-    trace("1.1.1.1", signal).catch(() => null),
+    cloudflareTrace(signal).catch(() => null),
     collectCandidates(signal),
   ]);
   const results = await Promise.all(

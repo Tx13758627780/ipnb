@@ -87,6 +87,35 @@ export async function trace(domain: string, signal?: AbortSignal) {
   );
 }
 
+/**
+ * Hosts used for the "Cloudflare" egress comparison, in priority order.
+ *
+ * Hostnames on regular Cloudflare zones come first. The IP literal 1.1.1.1 is
+ * only a fallback: proxy nodes relayed through a Cloudflare Worker (VLESS/VMess
+ * over WebSocket) cannot open sockets to Cloudflare's own anycast addresses, so
+ * `https://1.1.1.1/cdn-cgi/trace` hangs until the browser timeout on every such
+ * node while `www.cloudflare.com` answers normally.
+ */
+export const cloudflareTraceHosts = ["www.cloudflare.com", "1.1.1.1"] as const;
+
+/** Egress address as seen by Cloudflare, falling back across trace hosts. */
+export async function cloudflareTrace(
+  signal?: AbortSignal,
+  hosts: readonly string[] = cloudflareTraceHosts,
+) {
+  let lastError: unknown = new Error(t("目标站点未返回可读取的出口 IP"));
+  for (const host of hosts) {
+    signal?.throwIfAborted();
+    try {
+      return await trace(host, signal);
+    } catch (error) {
+      if (signal?.aborted) throw error;
+      lastError = error;
+    }
+  }
+  throw lastError;
+}
+
 export async function probe(url: string, signal?: AbortSignal) {
   const start = performance.now();
   try {

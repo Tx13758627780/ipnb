@@ -7,7 +7,7 @@ import {
   Pending,
 } from "@/components/toolkit";
 import { t } from "@/i18n";
-import { trace } from "@/lib/network";
+import { cloudflareTrace, trace } from "@/lib/network";
 import { getGeo, getDomesticIp } from "@/views/home/api";
 import { useQuery } from "@tanstack/react-query";
 import { AiNetworkCheck } from "./network-check";
@@ -40,7 +40,7 @@ export default function PlatformDiagnostics({
   });
   const cf = useQuery({
     queryKey: ["cf-exit"],
-    queryFn: ({ signal }) => trace("1.1.1.1", signal),
+    queryFn: ({ signal }) => cloudflareTrace(signal),
     retry: false,
   });
   return (
