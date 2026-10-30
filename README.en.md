@@ -1,4 +1,4 @@
-# one-ip-v2
+# ipnb
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-19-282C34?logo=react&amp;logoColor=61DAFB" alt="React 19" />
@@ -15,15 +15,15 @@
   <img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&amp;logoColor=black" alt="Prettier" />
 </p>
 
-one-ip-v2 is an independently maintained toolbox for IP lookups, network diagnostics, browser checks and AI service status. Live site: [ipnb.online](https://ipnb.online/).
+ipnb is an independently maintained toolbox for IP lookups, network diagnostics, browser checks and AI service status. Live site: [ipnb.online](https://ipnb.online/).
 
 [中文](README.md) · **English**
 
-[Live site](https://ipnb.online/) · [GitHub](https://github.com/Tx13758627780/one-ip-v2) · [Issues](https://github.com/Tx13758627780/one-ip-v2/issues) · Contact: [contact@ipnb.online](mailto:contact@ipnb.online)
+[Live site](https://ipnb.online/) · [GitHub](https://github.com/Tx13758627780/ipnb) · [Issues](https://github.com/Tx13758627780/ipnb/issues) · Contact: [contact@ipnb.online](mailto:contact@ipnb.online)
 
 Click the button below for one-click deployment to Cloudflare.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FTx13758627780%2Fone-ip-v2)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FTx13758627780%2Fipnb)
 
 ## Terminal and API
 
@@ -47,9 +47,9 @@ Returns `ip`, `source`, `checked_at`, `score`, `status`, location, ISP, ASN and 
 
 ## Deploy to Cloudflare
 
-1. [Fork this project](https://github.com/Tx13758627780/one-ip-v2/fork) into your GitHub account.
+1. [Fork this project](https://github.com/Tx13758627780/ipnb/fork) into your GitHub account.
 2. Open the [Cloudflare dashboard](https://dash.cloudflare.com/), go to **Workers & Pages**, create a Worker and choose to import a Git repository.
-3. Connect GitHub, select your `one-ip-v2` fork and set the production branch to `main`.
+3. Connect GitHub, select your `ipnb` fork and set the production branch to `main`.
 4. Set the build command to `pnpm build` and the deploy command to `pnpm deploy`. Use Node.js 24 and pnpm 10.32.1. Keep the default root directory.
 5. Deploy and open the assigned `workers.dev` address. Use the Worker settings to connect a custom domain.
 
@@ -152,8 +152,8 @@ reCAPTCHA uses v3 score-based keys. The backend validates hostname, the `browser
 - Globalping: global measurements; IANA / RDAP: registration records; official platform status feeds: service status.
 - FingerprintJS and CreepJS: browser checks. See [vendor/browser-diagnostics](vendor/browser-diagnostics/README.md) for module details.
 
-Issues and suggestions are welcome on [GitHub Issues](https://github.com/Tx13758627780/one-ip-v2/issues), or email [contact@ipnb.online](mailto:contact@ipnb.online). Redact private information such as IPs, locations and fingerprint identifiers before sharing screenshots.
+Issues and suggestions are welcome on [GitHub Issues](https://github.com/Tx13758627780/ipnb/issues), or email [contact@ipnb.online](mailto:contact@ipnb.online). Redact private information such as IPs, locations and fingerprint identifiers before sharing screenshots.
 
 ## License and origin
 
-Licensed under [GNU AGPL-3.0](LICENSE). Originally based on [zhihui-hu/one-ip](https://github.com/zhihui-hu/one-ip) (AGPL-3.0); now independently maintained as one-ip-v2. Original copyright and license notices are retained.
+Licensed under [GNU AGPL-3.0](LICENSE). Originally based on [zhihui-hu/one-ip](https://github.com/zhihui-hu/one-ip) (AGPL-3.0); now independently maintained as ipnb. Original copyright and license notices are retained.

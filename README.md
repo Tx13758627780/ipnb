@@ -1,6 +1,6 @@
-<img src="public/icon.svg" alt="one-ip-v2 Logo" width="96" height="96" />
+<img src="public/icon.svg" alt="ipnb Logo" width="96" height="96" />
 
-# one-ip-v2
+# ipnb
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-19-282C34?logo=react&amp;logoColor=61DAFB" alt="React 19" />
@@ -17,23 +17,23 @@
   <img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&amp;logoColor=black" alt="Prettier" />
 </p>
 
-one-ip-v2 是一个独立维护的 IP 查询、网络诊断、浏览器检测与 AI 服务状态工具箱，线上站点：[ipnb.online](https://ipnb.online/)。
+ipnb 是一个独立维护的 IP 查询、网络诊断、浏览器检测与 AI 服务状态工具箱，线上站点：[ipnb.online](https://ipnb.online/)。
 
 **中文** · [English](README.en.md)
 
-[在线体验](https://ipnb.online/) · [GitHub](https://github.com/Tx13758627780/one-ip-v2) · [问题反馈](https://github.com/Tx13758627780/one-ip-v2/issues) · 联系：[contact@ipnb.online](mailto:contact@ipnb.online)
+[在线体验](https://ipnb.online/) · [GitHub](https://github.com/Tx13758627780/ipnb) · [问题反馈](https://github.com/Tx13758627780/ipnb/issues) · 联系：[contact@ipnb.online](mailto:contact@ipnb.online)
 
 社区友链：[LINUX DO](https://linux.do/) · 真诚、友善、团结、专业。
 
 点击下方按钮，一键部署到 Cloudflare。
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FTx13758627780%2Fone-ip-v2)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FTx13758627780%2Fipnb)
 
 ## Cloudflare 部署教程
 
-1. [Fork 本项目](https://github.com/Tx13758627780/one-ip-v2/fork)到你的 GitHub 账号。
+1. [Fork 本项目](https://github.com/Tx13758627780/ipnb/fork)到你的 GitHub 账号。
 2. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)，进入 **Workers & Pages**，创建 Worker，选择导入 Git 仓库。
-3. 连接 GitHub，选择你的 `one-ip-v2` Fork，生产分支填 `main`。
+3. 连接 GitHub，选择你的 `ipnb` Fork，生产分支填 `main`。
 4. 构建命令填 `pnpm build`，部署命令填 `pnpm deploy`。使用 Node.js 24 和 pnpm 10.32.1，根目录保持默认。
 5. 点击部署，完成后打开 `workers.dev` 地址。自定义域名在 Worker 设置中绑定。
 
@@ -158,7 +158,7 @@ reCAPTCHA 使用 v3 评分型密钥。服务端校验 hostname、`browser_check`
 - Globalping：全球测量；IANA / RDAP：注册资料；各平台官方状态源：运行状态。
 - FingerprintJS 与 CreepJS：浏览器检测，模块说明见 [vendor/browser-diagnostics](vendor/browser-diagnostics/README.md)。
 
-欢迎在 [GitHub Issues](https://github.com/Tx13758627780/one-ip-v2/issues) 提交问题和改进建议，或发邮件至 [contact@ipnb.online](mailto:contact@ipnb.online)。分享截图前，请遮盖 IP、位置和指纹标识等隐私信息。
+欢迎在 [GitHub Issues](https://github.com/Tx13758627780/ipnb/issues) 提交问题和改进建议，或发邮件至 [contact@ipnb.online](mailto:contact@ipnb.online)。分享截图前，请遮盖 IP、位置和指纹标识等隐私信息。
 
 ### 人机校验与 Claude 环境对照
 
@@ -172,4 +172,4 @@ Claude 页面还内嵌自动人机校验，并本地检测简繁中文字体、�
 
 ## 许可与来源
 
-本项目以 [GNU AGPL-3.0](LICENSE) 许可发布。最初基于 [zhihui-hu/one-ip](https://github.com/zhihui-hu/one-ip)（AGPL-3.0），现由 one-ip-v2 独立维护；原项目的版权与许可声明保持不变。
+本项目以 [GNU AGPL-3.0](LICENSE) 许可发布。最初基于 [zhihui-hu/one-ip](https://github.com/zhihui-hu/one-ip)（AGPL-3.0），现由 ipnb 独立维护；原项目的版权与许可声明保持不变。

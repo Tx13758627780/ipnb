@@ -193,7 +193,7 @@ export function AppLayout() {
             <nav className="app-footer-links" aria-label={t("使用文档")}>
               <UnderlineHover asChild>
                 <a
-                  href="https://github.com/Tx13758627780/one-ip-v2#readme"
+                  href="https://github.com/Tx13758627780/ipnb#readme"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -211,7 +211,7 @@ export function AppLayout() {
               </UnderlineHover>
               <UnderlineHover asChild>
                 <a
-                  href="https://github.com/Tx13758627780/one-ip-v2"
+                  href="https://github.com/Tx13758627780/ipnb"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -55,7 +55,7 @@ export default function ApiUsagePage() {
       <ApiCodeBlock code={command} language="bash" />
       <a
         className="inline-block text-sm text-primary hover:underline"
-        href="https://github.com/Tx13758627780/one-ip-v2#readme"
+        href="https://github.com/Tx13758627780/ipnb#readme"
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -9,10 +9,10 @@
   "homepage": "https://ipnb.online",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tx13758627780/one-ip-v2.git"
+    "url": "git+https://github.com/Tx13758627780/ipnb.git"
   },
   "bugs": {
-    "url": "https://github.com/Tx13758627780/one-ip-v2/issues",
+    "url": "https://github.com/Tx13758627780/ipnb/issues",
     "email": "contact@ipnb.online"
   },
   "packageManager": "pnpm@10.32.1",
