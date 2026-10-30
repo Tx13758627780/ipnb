@@ -53,13 +53,13 @@ export function setLocale(next: Locale) {
 
 export function initializeLocale() {
   document.documentElement.lang = locale;
-  document.title = t("IP 网络工具概览");
+  document.title = t("ipnb · IP 查询与网络诊断");
   const description = document.querySelector('meta[name="description"]');
   if (description)
     description.setAttribute(
       "content",
       t(
-        "IP 查询、网站分流、WebRTC 检测、全球 Ping、服务状态和 WHOIS 查询工具。",
+        "ipnb：IP 查询、网站分流、AI 可用性、WebRTC 检测、全球 Ping、服务状态和 WHOIS 查询工具。",
       ),
     );
 }

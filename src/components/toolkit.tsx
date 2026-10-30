@@ -38,7 +38,7 @@ export function PageHeading({
   privacy?: boolean;
 }) {
   useEffect(() => {
-    document.title = `${title}`;
+    document.title = `${title} · ipnb`;
   }, [title]);
   return (
     <>

@@ -1,7 +1,7 @@
 @import "@fontsource-variable/geist-mono";
 
 /* ==========================================================================
-   One IP · V2 "Signal" design system
+   ipnb · V2 "Signal" design system
    Map-first instrument panel: pure black canvas, neon lime / cyan signal
    colours, frosted glass panels and mono numerals. A light counterpart keeps
    the same structure with darkened accents. Loaded after app.css, so the
@@ -199,13 +199,14 @@ body {
   height: 28px;
   flex: none;
   border-radius: 8px;
-  background: var(--lime);
-  color: var(--background);
-  box-shadow: 0 0 18px -4px color-mix(in srgb, var(--lime) 70%, transparent);
+  box-shadow: 0 0 18px -4px rgb(163 230 53 / 0.7);
 }
 .brand-mark svg {
-  width: 17px;
-  height: 17px;
+  width: 100%;
+  height: 100%;
+}
+html:not(.dark) .brand-mark {
+  box-shadow: 0 0 0 1px rgb(63 98 18 / 0.25);
 }
 .brand-wordmark {
   font-weight: 700;
@@ -1801,8 +1802,8 @@ a.v2-ticket:hover {
   box-shadow: none;
 }
 .app-footer-brand .brand-mark svg {
-  width: 12px;
-  height: 12px;
+  width: 100%;
+  height: 100%;
 }
 .app-footer-links {
   display: flex;

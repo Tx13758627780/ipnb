@@ -100,11 +100,11 @@ export function AppLayout() {
           <Link
             to="/"
             className="flex items-center gap-2 text-sm font-semibold"
-            aria-label={t("IP 网络工具概览")}
+            aria-label={t("ipnb 首页")}
           >
             <BrandMark />
             <span className="brand-wordmark">
-              one<b>-</b>ip
+              ip<b>nb</b>
             </span>
           </Link>
           <div className="flex items-center gap-1">
@@ -134,12 +134,12 @@ export function AppLayout() {
               )}
               <Link
                 to="/"
-                aria-label={t("IP 网络工具概览")}
+                aria-label={t("ipnb 首页")}
                 className="site-home-link flex size-9 shrink-0 items-center justify-center rounded-lg focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <BrandMark />
                 <span className="brand-wordmark">
-                  one<b>-</b>ip
+                  ip<b>nb</b>
                 </span>
               </Link>
               <ScrollArea className="nav-tabs-scroll">
@@ -188,7 +188,7 @@ export function AppLayout() {
           <div className="app-footer-inner">
             <span className="app-footer-brand">
               <BrandMark />
-              <span>© {new Date().getFullYear()} one-ip · ipnb.online</span>
+              <span>© {new Date().getFullYear()} ipnb · ipnb.online</span>
             </span>
             <nav className="app-footer-links" aria-label={t("使用文档")}>
               <UnderlineHover asChild>

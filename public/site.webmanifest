@@ -1,0 +1,16 @@
+{
+  "name": "ipnb · IP 查询与网络诊断",
+  "short_name": "ipnb",
+  "description": "IP 查询、网站分流、AI 可用性、全球 Ping、服务状态与浏览器检测。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

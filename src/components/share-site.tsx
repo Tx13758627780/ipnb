@@ -43,7 +43,7 @@ export function ShareSite({
       <ResponsiveDialog
         open={open}
         onOpenChange={setOpen}
-        title={t("分享网站")}
+        title={t("分享 ipnb")}
         description={t("把实用的网络工具，分享给需要的人。")}
       >
         <div className="space-y-3">
@@ -52,11 +52,17 @@ export function ShareSite({
               <QRCodeSVG
                 value={siteUrl}
                 size={224}
-                level="M"
+                level="H"
                 marginSize={4}
                 bgColor="#ffffff"
                 fgColor="#111827"
-                title={t("扫码打开网站")}
+                title={t("扫码打开 ipnb")}
+                imageSettings={{
+                  src: "/favicon.svg",
+                  height: 40,
+                  width: 40,
+                  excavate: true,
+                }}
                 className="block h-auto w-full rounded-xl"
               />
               <span
@@ -76,8 +82,12 @@ export function ShareSite({
                 aria-hidden="true"
               />
             </div>
-            <p className="mt-2 text-[11px] text-muted-foreground">
-              {t("扫码打开网站")}
+            <p className="mt-2 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+              <span className="font-semibold text-foreground">
+                ip<b className="text-primary">nb</b>
+              </span>
+              <span aria-hidden="true">·</span>
+              {t("扫码打开 ipnb")}
             </p>
           </div>
           <InputGroup>

@@ -13,7 +13,7 @@ export function HomePage() {
   const { refresh, refreshing } = useRefresh();
   const data = useHomeData();
   useEffect(() => {
-    document.title = t("概览 - IP 网络工具");
+    document.title = t("ipnb · IP 查询与网络诊断");
   }, []);
   return (
     <div className="v2-home">

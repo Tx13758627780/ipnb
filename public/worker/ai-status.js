@@ -136,8 +136,7 @@ export async function getAiStatus(service) {
     return parseReplicate(
       await upstream(service.url, {
         headers: {
-          "User-Agent":
-            "One-IP/1.0 (+https://github.com/Tx13758627780/one-ip-v2)",
+          "User-Agent": "ipnb/1.0 (+https://ipnb.online)",
         },
       }),
     );
