@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CopyButton } from "@/components/copy-button";
 import { CountryFlag } from "@/components/country-flag";
@@ -122,7 +122,12 @@ export function IpDetails({
           </div>
           <div
             className="ip-reputation-badge"
-            style={{ color: ipScoreColor(score) }}
+            style={
+              {
+                color: ipScoreColor(score),
+                "--score": score ?? 0,
+              } as CSSProperties
+            }
           >
             <span>{t("IP 信誉分")}</span>
             <strong>

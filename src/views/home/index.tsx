@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ConnectivityTile, homeTargets } from "@/components/connectivity";
 import { CountryFlag } from "@/components/country-flag";
@@ -24,6 +24,7 @@ import {
   Network,
   Search,
   ShieldCheck,
+  RefreshCw,
 } from "lucide-react";
 import { getGeo, getBrowserIp, getDomesticIp } from "./api";
 import { PlatformSummary } from "./platform-summary";
@@ -148,17 +149,27 @@ export function HomePage() {
   const typeByIp = new Map(ips.map((ip, index) => [ip, typeQueries[index]]));
   return (
     <div className="home-page">
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <h1 className="text-sm font-semibold">{t("网络概览")}</h1>
-        <ActionButton
-          size="sm"
-          variant="outline"
-          busy={refreshing}
-          onClick={refresh}
-        >
+      <header className="page-hero">
+        <div>
+          <span className="page-hero-eyebrow">
+            <span className="live-dot" aria-hidden="true" />
+            {t("网络概览")}
+          </span>
+          <h1>
+            {t("看清你的")}
+            <span className="accent">{t("网络出口")}</span>
+          </h1>
+          <p>
+            {t(
+              "出口 IP、连通性、网站分流与 AI 服务可用性，一页看清网站眼中的你。",
+            )}
+          </p>
+        </div>
+        <ActionButton busy={refreshing} onClick={refresh}>
+          <RefreshCw aria-hidden="true" />
           {refreshing ? t("检测中...") : t("重新检测")}
         </ActionButton>
-      </div>
+      </header>
       <div className="home-overview home-ip-overview">
         {cards.map(({ query, data, version, label }, index) => {
           const pending = !data && query.isPending;
@@ -264,7 +275,12 @@ export function HomePage() {
                   {hasScore && (
                     <div
                       className="ip-reputation-badge shrink-0"
-                      style={{ color: ipScoreColor(score) }}
+                      style={
+                        {
+                          color: ipScoreColor(score),
+                          "--score": score,
+                        } as CSSProperties
+                      }
                     >
                       <span>{t("IP 信誉分")}</span>
                       <strong>

@@ -16,7 +16,7 @@ import { Search, Globe, Cable, Activity, Sparkles } from "lucide-react";
 import { Tabs } from "radix-ui";
 import { Toaster } from "sonner";
 import { RouteErrorBoundary } from "./route-error-boundary";
-import { activeNavigationRoute, navigationRoutes } from "./routes";
+import { activeNavigationRoute, navigationRoutes, toolGroups } from "./routes";
 
 const MobileNavGlass = lazy(() => import("@/components/mobile-nav-glass"));
 
@@ -42,6 +42,20 @@ const options = navigationRoutes.map((route) => {
   };
 });
 
+const allTools = Object.values(toolGroups).flat();
+
+/** Visual page title derived from the route; the accessible h1 stays in PageHeading. */
+function routeHeading(pathname: string, activeRoute: string) {
+  if (activeRoute === "/") return null;
+  const section = navigationRoutes.find((route) => route.value === activeRoute);
+  if (!section) return null;
+  const path = pathname.replace(/\/+$/, "");
+  const tool = allTools.find(
+    (item) => path === item.path || path.startsWith(`${item.path}/`),
+  );
+  return { section: section.label, title: tool?.label ?? section.label };
+}
+
 export function AppLayout() {
   const { resolvedTheme } = useTheme();
   const mobile = useIsMobile();
@@ -49,6 +63,7 @@ export function AppLayout() {
   const navigate = useNavigate();
   const navRef = useRef<HTMLElement>(null);
   const activeRoute = activeNavigationRoute(pathname);
+  const heading = routeHeading(pathname, activeRoute);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -78,6 +93,7 @@ export function AppLayout() {
 
   return (
     <>
+      <div className="app-backdrop" aria-hidden="true" />
       <div className="app-container">
         <header className="mobile-site-header">
           <Link
@@ -86,6 +102,7 @@ export function AppLayout() {
             aria-label={t("IP 网络工具概览")}
           >
             <img src="/icon.svg" width="24" height="24" alt="" />
+            <span className="brand-wordmark">{t("网络诊断工具")}</span>
           </Link>
           <div className="flex items-center gap-1">
             <ShareSite />
@@ -118,6 +135,7 @@ export function AppLayout() {
                 className="site-home-link flex size-9 shrink-0 items-center justify-center rounded-lg focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <img src="/icon.svg" alt="" width="32" height="32" />
+                <span className="brand-wordmark">{t("网络诊断工具")}</span>
               </Link>
               <ScrollArea className="nav-tabs-scroll">
                 {list}
@@ -133,6 +151,16 @@ export function AppLayout() {
         >
           <Tabs.Content value={activeRoute} asChild>
             <main className="outline-none">
+              {heading && (
+                <div className="route-heading" aria-hidden="true">
+                  {heading.title !== heading.section && (
+                    <span className="route-heading-section">
+                      {heading.section}
+                    </span>
+                  )}
+                  <span className="route-heading-title">{heading.title}</span>
+                </div>
+              )}
               <RouteErrorBoundary key={pathname}>
                 <Suspense
                   fallback={
@@ -148,43 +176,44 @@ export function AppLayout() {
           </Tabs.Content>
         </AnimatedSegmentedTabs>
         <footer className="app-footer">
-          © {new Date().getFullYear()} IP ·{" "}
-          <UnderlineHover asChild>
-            <a
-              href="https://huzhihui.com/blog/one-ip-guide"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t("使用文档")}
-            </a>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <Link to="/docs/api">API</Link>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <Link to="/terms">{t("使用条款")}</Link>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <Link to="/privacy">{t("隐私政策")}</Link>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <a
-              href="https://github.com/zhihui-hu/one-ip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 align-middle"
-            >
-              GitHub
-            </a>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <a href="mailto:ip@huzhihui.com">{t("联系作者")}</a>
-          </UnderlineHover>
+          <div className="app-footer-inner">
+            <span className="app-footer-brand">
+              <img src="/icon.svg" alt="" width="20" height="20" />
+              <span>© {new Date().getFullYear()} IP</span>
+            </span>
+            <nav className="app-footer-links" aria-label={t("使用文档")}>
+              <UnderlineHover asChild>
+                <a
+                  href="https://huzhihui.com/blog/one-ip-guide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("使用文档")}
+                </a>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <Link to="/docs/api">API</Link>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <Link to="/terms">{t("使用条款")}</Link>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <Link to="/privacy">{t("隐私政策")}</Link>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <a
+                  href="https://github.com/zhihui-hu/one-ip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <a href="mailto:ip@huzhihui.com">{t("联系作者")}</a>
+              </UnderlineHover>
+            </nav>
+          </div>
         </footer>
       </div>
       <aside aria-label={t("站点通知")} className="update-notices">

@@ -1353,8 +1353,8 @@
   "可选，公网 IPv4 / IPv6；默认查询请求出口，本地开发必填。": "Optional public IPv4 / IPv6; defaults to request egress. Required locally.",
   "json（默认）或 text。": "json (default) or text.",
   "IP、位置、ISP、ASN、信誉分和风险标记；未知值为 null。": "IP, location, ISP, ASN, reputation score and risk flags; unknown values are null.",
-  "75–100 good · 45–74 moderate · 0–44 poor；无分数时 unknown。": "75\u2013100 good \u00b7 45\u201374 moderate \u00b7 0\u201344 poor; unknown when no score is available.",
-  "JSON error：400 参数错误 · 403 跨站请求 · 405 方法错误 · 429 限流 · 502 上游失败 · 503 请指定 IP。": "JSON error: 400 invalid input \u00b7 403 cross-site request \u00b7 405 wrong method \u00b7 429 rate limit \u00b7 502 upstream failure \u00b7 503 specify an IP.",
+  "75–100 good · 45–74 moderate · 0–44 poor；无分数时 unknown。": "75–100 good · 45–74 moderate · 0–44 poor; unknown when no score is available.",
+  "JSON error：400 参数错误 · 403 跨站请求 · 405 方法错误 · 429 限流 · 502 上游失败 · 503 请指定 IP。": "JSON error: 400 invalid input · 403 cross-site request · 405 wrong method · 429 rate limit · 502 upstream failure · 503 specify an IP.",
   "数据来自 Net.Coffee，仅供 IP 信誉参考。浏览器仅支持同源调用，限流后请稍后重试。": "Net.Coffee data is for IP reputation reference. Browser calls must be same-origin. Retry later after rate limiting.",
   "我的 IP 信息 API": "My IP information API",
   "One IP 提供公开 API，可查询请求出口的 IP、位置信息、ASN、信誉分和风险标记，无需 API Key。": "One IP provides a public API for the request egress IP, location, ASN, reputation score and risk flags. No API key is required.",
@@ -1364,5 +1364,8 @@
   "以下为示意数据，并非实时查询结果。": "Illustrative data, not a live query result.",
   "信誉分越高越好；未知字段为 null。接口有频率限制，收到 429 后请稍后重试。": "Higher reputation scores are better. Unknown fields are null. The API is rate-limited; retry later after a 429 response.",
   "暂未接入可读取 Telegram 出口 IP 的接口；网页连通性请使用网站连通检测。": "No readable Telegram egress IP endpoint is integrated. Use website connectivity to check web access.",
-  "暂未接入 Telegram 官方实时状态接口，请查看官方公告；待确认不代表服务故障。": "No official live Telegram status feed is integrated. Check official announcements; unconfirmed does not mean an outage."
+  "暂未接入 Telegram 官方实时状态接口，请查看官方公告；待确认不代表服务故障。": "No official live Telegram status feed is integrated. Check official announcements; unconfirmed does not mean an outage.",
+  "看清你的": "See your ",
+  "网络出口": "network egress",
+  "出口 IP、连通性、网站分流与 AI 服务可用性，一页看清网站眼中的你。": "Egress IPs, connectivity, site routing and AI reachability — see yourself the way websites see you, on one page."
 }
